@@ -55,22 +55,22 @@
                 <p class="about">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             
                 <div class="member-list">
-                    <div class="member-items">
+                    <div class="member-items ">
                         <div class="member-name">Akali</div>
                         <img src="assets/img/members/KDA-Akali.jpg" alt="Name" class="member-avt">
                     </div>
 
-                    <div class="member-items">
+                    <div class="member-items ">
                         <div class="member-name">Evelynn</div>
                         <img src="assets/img/members/KDA-Evelyn.jpg" alt="Name" class="member-avt">
                     </div>
 
-                    <div class="member-items">
+                    <div class="member-items ">
                         <div class="member-name">Ahri</div>
                         <img src="assets/img/members/KDA-Kahi.jpg" alt="Name" class="member-avt">
                     </div>
 
-                    <div class="member-items">
+                    <div class="member-items ">
                         <div class="member-name">Kaisa</div>
                         <img src="assets/img/members/KDA-Kaisa.jpg" alt="Name" class="member-avt">
                     </div>
@@ -91,37 +91,37 @@
                     </ul>
 
                     <!-- Places -->
-                    <div class="places-list">
+                    <div class="row places-list">
                         <!-- Place 1 -->
-                        <div class="place-item">
+                        <div class="col col-3">
                             <img src="assets/img/places/Bilgewater.jpg" alt="Bilgewater" class="place-img">
                             <div class="place-content">
                                 <h3 class="place-heading">Bilgewater</h3>
                                 <p class="place-time">Fri 27 Nov 2021</p>
                                 <p class="place-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="buy-butn">Buy Tickets</a>
+                                <a  class="buy-butn js-buy-ticket">Buy Tickets</a>
                             </div>
                         </div>
 
                         <!-- Place 2 -->
-                        <div class="place-item">
+                        <div class="col col-3">
                             <img src="assets/img/places/Freljord_Fortress.jpg" alt="The Freljord" class="place-img">
                             <div class="place-content">
                                 <h3 class="place-heading">The Freljord</h3>
                                 <p class="place-time">Sat 28 Nov 2021</p>
                                 <p class="place-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="buy-butn">Buy Tickets</a>
+                                <a  class="buy-butn js-buy-ticket">Buy Tickets</a>
                             </div>
                         </div>
 
                         <!-- Place 3 -->
-                        <div class="place-item">
+                        <div class="col col-3">
                             <img src="assets/img/places/Bandle.png" alt="Bandle City" class="place-img">
                             <div class="place-content">
                                 <h3 class="place-heading">Bandle City</h3>
                                 <p class="place-time">Fri 29 Nov 2021</p>
                                 <p class="place-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="buy-butn">Buy Tickets</a>
+                                <a  class="buy-butn js-buy-ticket">Buy Tickets</a>
                             </div>
                         </div>
                         <div class="clear"></div>                     
@@ -129,21 +129,24 @@
                 </div>
             </div>
 
-            <!-- FOOTER -->
-            <div id="footer">
-                <div class="content-section">
-                    <h2 class="section-heading">CONTACT</h2>
-                    <p class="section-sub-heading">Fan? Drop a note!</p>
-                </div>
-            </div>
+            <!-- Contact -->
+            <div class="content-section">
+                <h2 class="section-heading">CONTACT</h2>
+                <p class="section-sub-heading">Fan? Drop a note!</p>
+            </div>    
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer">
+                
         </div>
     </div>
 
     <!-- Modal content in buy tickets button -->
-    <div class="modal">
-        <div class="modal-container">
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
             <!-- Close button -->
-            <div class="modal-close">
+            <div class="modal-close js-modal-close">
                 <i class="ti-close"></i>
             </div>
             <!-- Header -->
@@ -180,5 +183,33 @@
         </div>
     </div>
 
+    <!-- SCO RIP -->
+    <script>
+        const buyBtns = document.querySelectorAll('.js-buy-ticket')
+        const modal = document.querySelector('.js-modal')
+        const modalClose = document.querySelector('.js-modal-close')
+        const modalContainer = document.querySelector('.js-modal-container')
+
+        function showBuyTicket() {
+            modal.classList.add('open')
+        }
+ 
+        function hideBuyTicket() {
+            modal.classList.remove('open')
+        }
+
+        for (const item of buyBtns){
+            item.addEventListener('click', showBuyTicket)
+        }
+
+        modalClose.addEventListener('click', hideBuyTicket)
+        modal.addEventListener('click', hideBuyTicket)
+        modalContainer.addEventListener('click', function(event) {
+            event.stopPropagation()
+        })
+
+    </script>
+
 </body>
 </html>
+
