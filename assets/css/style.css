@@ -23,6 +23,12 @@ html{
     margin-right: -8px;
 }
 
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
 .col{
     float: left;
     padding-left: 8px;
@@ -33,12 +39,24 @@ html{
     width: calc(100% /3)
 }
 
+.col-full{
+    width: 100%;
+}
+
 .col-2{
-    width: 50;
+    width: 50%;
 }
 
 .text-center{
     text-align: center !important;
+}
+
+.mt-8{
+    margin-top: 8px;
+}
+
+.mt-16{
+    margin-top: 16px;
 }
 
 /* Main */
@@ -410,4 +428,44 @@ html{
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.contact-info{
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.contact-info i{
+    width: 32px;    
+    display: inline-block;
+}
+
+.contact-content{
+    margin-top: 48px;
+}
+
+.contact-form{
+    font-size: 15px;
+}
+
+.contact-form .form-control{
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.submit{
+    font-size: 15px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 12px 16px;
+    float: right;
+    cursor: pointer;
+    outline: none;
+}
+
+.submit:hover{
+    background-color: #ccc;
+    color: #000;
 }
